@@ -39,10 +39,10 @@ const gameLoop = () => {
                     console.log(`${partner.name}` + " " + "is eating!")
                 } else if (answers.action === "Play") {
                     partner.play()
-                    console.log("Your buddy is playing!")
+                    console.log(`${partner.name}` + " " + "is playing!")
                 } else if (answers.action === "Hydrate") {
                     partner.hydrate
-                    console.log("Your buddy is driking!")
+                    console.log(`${partner.name}` + " " + "is driking!")
                 } else if (answers.action === "Check") {
                     console.table(partner)
                 }
