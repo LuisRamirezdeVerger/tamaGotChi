@@ -1,4 +1,4 @@
-class animal {
+class Partner {
     constructor(type, name) {
         this.type = type
         this.name = name
@@ -9,7 +9,7 @@ class animal {
     health = 5
 
     feed(){
-        this.hunger + 2 //I'd to see if we can add more than 1 point
+        this.hunger++ //I'd to see if we can add more than 1 point
         this.thirst++ 
         this.health--
     }
@@ -25,8 +25,11 @@ class animal {
         this.thirst--
         this.health++
     }
+    status() {
+        console.table(partner)
+    }
 }
 
 module.exports = {
-    animal
+    Partner
 }
