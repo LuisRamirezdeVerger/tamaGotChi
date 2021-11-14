@@ -25,9 +25,6 @@ class Partner {
         this.thirst--
         this.health++
     }
-    status() {
-        console.table(partner)
-    }
 }
 
 module.exports = {
