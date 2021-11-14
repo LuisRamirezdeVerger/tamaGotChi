@@ -1,17 +1,17 @@
 const qstns = [
    {
        type: "list",
-       name: "petType",
+       name: "partnerType",
        message: "Choose your next partner ^^",
        choices: [
            "Dog",
            "Cat",
-           "Snake"
+           "Snake",
        ]
    },
    {
        type: "input",
-       name: "petName",
+       name: "partnerName",
        message: "How would you like to name it?"
    }
 ]

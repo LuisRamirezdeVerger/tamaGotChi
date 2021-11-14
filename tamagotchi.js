@@ -1,26 +1,34 @@
 const inquirer = require("inquirer")
 const {qstns} = require ("./questions")
-const {animal} = require ("./classes")
+const {Partner} = require ("./classes")
 
-let selectedOption = ["play", "feed", "drink"];
+let partner;
+
+const init = () => {
+    inquirer
+        .prompt(qstns)
+        .then ((answers) => {
+            partner = new Partner (answers.partnerType, answers.partnerName);
+        })
+        .then (() => gameLoop())
+} 
 
 //The game
 const gameLoop = () => {
     
-        if (animal.health < 0) {
-            console.log("Your pet has died")
+        if (partner.health < 0) {
+            console.log("Your partner has died")
             return
-        } else if(animal.hunger < 0) {
-            console.log("Your pet has died")
+        } else if(partner.hunger < 0) {
+            console.log("Your partner has died")
             return
-        } else if (animal.thirst < 0){
+        } else if (partner.thirst < 0){
             console.log ("Your pet has died")
             return
         }
 
-    }    
         
-
+        
         //CHECK FROM HERE AAP.JS ABD CLASSES.JS!
         inquirer
             .prompt([
@@ -28,25 +36,29 @@ const gameLoop = () => {
                     type: "rawlist",
                     name: "action",
                     message: "What would you like to do?",
-                    choices: ["Feed", "Hydrate", "Play"],
+                    choices: ["Feed", "Hydrate", "Play", "Check"],
                 },
             ])
             .then((answers) => {
                 if (answers.action === "Feed") {
-                    animal.feed()
-                    console.log("Your buddy is eating!")
+                    partner.feed()
+                    console.log(`${partner.name}` + " " + "is eating!")
                 } else if (answers.action === "Play") {
-                    animal.play()
+                    partner.play()
                     console.log("Your buddy is playing!")
-                } else {
-
+                } else if (answers.action === "Hydrate") {
+                    partner.hydrate
+                    console.log("Your buddy is driking!")
+                } else if (answers.action === "Check") {
+                    console.table(partner)
                 }
-                console.table(animal)
+
+                // partner.status()
             })
             .then(() => gameLoop())
     
     
-    
+        }
     init()
 //     if (pet.hunger< 0) {
 //         console.log("Your pet died")
