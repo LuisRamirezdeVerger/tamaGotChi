@@ -20,5 +20,3 @@ const qstns = [
 module.exports = {
   qstns,
 };
-
-// test
